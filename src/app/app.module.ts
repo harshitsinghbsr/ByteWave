@@ -11,12 +11,24 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoginpageComponent } from './components/loginpage/loginpage.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { MainComponent } from './components/main/main.component';
+import { DashboardComponent } from './components/main/pages/dashboard/dashboard.component';
+import { HeaderComponent } from './components/main/header/header.component';
+import { SidebarComponent } from './components/main/sidebar/sidebar.component';
+import { FooterComponent } from './components/main/footer/footer.component';
+import { SchoolprofileComponent } from './components/main/pages/schoolprofile/schoolprofile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewAccountComponent,
-    LoginpageComponent
+    LoginpageComponent,
+    MainComponent,
+    DashboardComponent,
+    HeaderComponent,
+    SidebarComponent,
+    FooterComponent,
+    SchoolprofileComponent
   ],
   imports: [
     BrowserModule,
