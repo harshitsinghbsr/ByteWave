@@ -1,1 +1,143 @@
+<main id="main" class="main">
 
+  <div class="pagetitle">
+    <h1>School Details</h1>
+    <!-- <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item">Forms</li>
+        <li class="breadcrumb-item active">Layouts</li>
+      </ol>
+    </nav> -->
+  </div><!-- End Page Title -->
+  <section class="section">
+    <div class="row">
+
+      <div class="col-lg-12">
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">School details Forms</h5>
+
+            <!-- Floating Labels Form -->
+            <form class="row g-3">
+              <div class="col-md-9">
+                <div class="col-md-12 mb-4">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name">
+                    <label for="floatingName">School Name</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-floating">
+                      <input type="email" class="form-control" id="floatingEmail" placeholder="Your Email">
+                      <label for="floatingEmail">School Email</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="floatingEmail" placeholder="Your Website">
+                      <label for="floatingWebsite">Website</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-floating">
+                      <input type="tel" class="form-control" id="floatingPhone" placeholder="School Phone Number">
+                      <label for="floatingPhone">Phone No.</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-floating">
+                      <input type="tel" class="form-control" id="floatingLandLine" placeholder="Your LandLine">
+                      <label for="floatingWebsite">LandLine</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 mb-4">
+                  <div class="form-floating">
+                    <textarea class="form-control" placeholder="Address" id="floatingTextarea" style="height: 100px;"></textarea>
+                    <label for="floatingTextarea">Address</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 mb-4">
+                    <div class="form-floating">
+                      <select class="form-select" id="floatingSelect" aria-label="State">
+                        <option selected>New York</option>
+                        <option value="1">Oregon</option>
+                        <option value="2">DC</option>
+                      </select>
+                      <label for="floatingSelect">Country</label>
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-4">
+                    <div class="form-floating">
+                      <select class="form-select" id="floatingSelect" aria-label="State">
+                        <option selected>New York</option>
+                        <option value="1">Oregon</option>
+                        <option value="2">DC</option>
+                      </select>
+                      <label for="floatingSelect">State</label>
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-4">
+                    <div class="form-floating">
+                      <select class="form-select" id="floatingSelect" aria-label="State">
+                        <option selected>New York</option>
+                        <option value="1">Oregon</option>
+                        <option value="2">DC</option>
+                      </select>
+                      <label for="floatingSelect">City</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="floatingPincode" placeholder="Pincode">
+                      <label for="floatingPincode">Pincode</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="floatingAffiliated" placeholder="Affiliated To">
+                      <label for="floatingAffiliated">Affiliated To</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="col-md-12">
+                  <!-- Clickable Image -->
+                  <label for="fileInput">
+                    <img [src]="schoolSrc" class="img-thumbnail schoolSrc" alt="Click to Upload" style="cursor: pointer;" />
+                  </label>
+                  <!-- Hidden File Input -->
+                  <input type="file" id="fileInput" (change)="onLogoSelected($event)" accept="image/*" style="display: none;">
+                </div>
+                <div class="col-md-12">
+                  <!-- Clickable Image -->
+                  <label for="fileInput2">
+                    <img [src]="signSrc" class="img-thumbnail signSrc" alt="Click to Upload" style="cursor: pointer;" />
+                  </label>
+                  <!-- Hidden File Input -->
+                  <input type="file" id="fileInput2" (change)="onSignSelected($event)" accept="image/*" style="display: none;">
+                </div>
+              </div>
+              <div class="text-center d-flex justify-content-center gap-3">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+              </div>
+            </form><!-- End floating Labels Form -->
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main><!-- End #main -->

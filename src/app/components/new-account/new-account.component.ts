@@ -13,6 +13,9 @@ import { Router } from '@angular/router';
 })
 export class NewAccountComponent implements OnInit{
 
+  username:string = '';
+  username_btn:boolean = true;
+
   constructor(
     private formBuilder : FormBuilder,
     private toastr: ToastrService,
@@ -27,10 +30,35 @@ export class NewAccountComponent implements OnInit{
   signUpForm:FormGroup = this.formBuilder.group({
     name:['',[Validators.required , Validators.minLength(4) , Validators.maxLength(20)]],
     email:['',[Validators.required , Validators.email]],
-    username:['',[Validators.required ,Validators.minLength(6) , Validators.maxLength(20)]],
+    username:['',[Validators.required]],
     password:['',[Validators.required ,Validators.minLength(4) , Validators.maxLength(20)]],
     terms:['',[Validators.required]],
   });
+
+  generateUsername(){
+    if(this.signUpForm.controls['email'].valid){
+      const email  = this.signUpForm.controls['email'].value;
+      const mydata = {
+        email : email
+      }
+      this.http.post(environment.apiURL + 'api/LoginController/generateUsername' , mydata).subscribe({
+        next : (res:any) => {
+          if(res.status){
+            this.username = res.value;
+            this.signUpForm.patchValue({
+              username : this.username
+            });
+          }else{
+            console.error("Error" , res.error);
+          }
+        },
+        error : (error) => {
+          console.error("Error" ,error);
+          this.toastr.error("An Error Occured . While trying to Generate Username" , "Error");
+        }
+      });
+    }
+  }
 
   createNewAccount(){
     if(this.signUpForm.invalid){
@@ -52,11 +80,12 @@ export class NewAccountComponent implements OnInit{
     }
     this.http.post(environment.apiURL + 'api/LoginController/createAccount', mydata).subscribe((res:any) => {
       if(res.status){
+        const emaill = this.signUpForm.value.email;
         this.signUpForm.reset();
         setTimeout(()=>{
           this.spinner.hide();
           this.toastr.success(res.message , res.title);
-          this.router.navigate(['/loginpage']);
+          this.router.navigate(['/verifyemail'] , { state: { email: emaill } });
         },2000);
       }else{
         if(res.title === 'Oops!'){

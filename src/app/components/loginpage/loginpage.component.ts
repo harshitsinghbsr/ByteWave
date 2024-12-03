@@ -46,6 +46,7 @@ export class LoginpageComponent implements OnInit{
           localStorage.setItem(res.token , 'authToken');
           this.spinner.hide();
           this.toastr.success(res.message , res.title);
+          // this.router.navigate(['/mainLayout'] , { state: { username: mydata.username , password:mydata.password } });
           this.router.navigate(['/mainLayout']);
         },2000);
         }else{

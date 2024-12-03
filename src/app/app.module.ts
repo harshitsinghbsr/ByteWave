@@ -17,6 +17,8 @@ import { HeaderComponent } from './components/main/header/header.component';
 import { SidebarComponent } from './components/main/sidebar/sidebar.component';
 import { FooterComponent } from './components/main/footer/footer.component';
 import { SchoolprofileComponent } from './components/main/pages/schoolprofile/schoolprofile.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { APIService } from './service/api.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { SchoolprofileComponent } from './components/main/pages/schoolprofile/sc
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
-    SchoolprofileComponent
+    SchoolprofileComponent,
+    VerifyEmailComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,7 @@ import { SchoolprofileComponent } from './components/main/pages/schoolprofile/sc
     NgxSpinnerModule,
     HttpClientModule
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true} , APIService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

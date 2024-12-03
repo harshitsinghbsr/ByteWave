@@ -39,7 +39,7 @@
                   <!-- "Your Email" Input Box -->
                   <div class="col-12">
                     <label for="yourEmail" class="form-label">Your Email</label>
-                    <input type="email" name="email" class="form-control" id="yourEmail" formControlName="email"
+                    <input type="email" name="email" class="form-control" id="yourEmail" formControlName="email" (blur)="generateUsername()"
                     [class.is-invalid]="signUpForm.controls['email'].invalid && signUpForm.controls['email'].touched"
                     [class.is-valid]="signUpForm.controls['email'].valid && signUpForm.controls['email'].touched">
                     <!-- Text For Invalid or Valid For Form -->
@@ -52,12 +52,12 @@
                     <label for="yourUsername" class="form-label">Username</label>
                     <div class="input-group has-validation">
                       <span class="input-group-text" id="inputGroupPrepend">&#64;</span>
-                      <input type="text" name="username" class="form-control" id="yourUsername" formControlName="username"
+                      <input type="text" name="username" class="form-control" id="yourUsername" formControlName="username" value="{{username}}" readonly
                       [class.is-invalid]="signUpForm.controls['username'].invalid && signUpForm.controls['username'].touched" 
                       [class.is-valid]="signUpForm.controls['username'].valid && signUpForm.controls['username'].touched">
                       <!-- Text For Invalid or Valid For Form -->
                       <!-- Invalid -->
-                      <div class="text-danger" *ngIf="signUpForm.controls['username'].invalid && signUpForm.controls['username'].touched">Username must be between 6 and 20 characters.</div>
+                      <!-- <div class="text-danger" *ngIf="signUpForm.controls['username'].invalid && signUpForm.controls['username'].touched">Username must be between 6 and 20 characters.</div> -->
                     </div>
                   </div>
 
