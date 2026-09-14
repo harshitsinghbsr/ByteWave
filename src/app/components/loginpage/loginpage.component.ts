@@ -42,8 +42,8 @@ export class LoginpageComponent implements OnInit{
       this.http.post(environment.apiURL + 'api/LoginController/loginUser' , mydata).subscribe((res:any)=>{
         if(res.status){
           this.loginForm.reset();
+          localStorage.setItem('authToken' , res.token); // Store the token with the key 'authToken'
         setTimeout(()=>{
-          localStorage.setItem(res.token , 'authToken');
           this.spinner.hide();
           this.toastr.success(res.message , res.title);
           // this.router.navigate(['/mainLayout'] , { state: { username: mydata.username , password:mydata.password } });

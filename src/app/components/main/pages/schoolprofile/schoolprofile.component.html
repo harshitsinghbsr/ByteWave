@@ -20,57 +20,39 @@
             <h5 class="card-title">School details Forms</h5>
 
             <!-- Floating Labels Form -->
-            <form class="row g-3">
+            <form class="row g-3" [formGroup]="schoolDetailsForm">
               <div class="col-md-9">
                 <div class="col-md-12 mb-4">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name">
+                    <input type="text" class="form-control" id="floatingName" placeholder="Your Name" formControlName="school_name"
+                    [class.is-invalid]="schoolDetailsForm.controls['school_name'].invalid && schoolDetailsForm.controls['school_name'].touched" 
+                    [class.is-valid]="schoolDetailsForm.controls['school_name'].valid && schoolDetailsForm.controls['school_name'].touched">
                     <label for="floatingName">School Name</label>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-6 mb-4">
                     <div class="form-floating">
-                      <input type="email" class="form-control" id="floatingEmail" placeholder="Your Email">
+                      <input type="email" class="form-control" id="floatingEmail" placeholder="Your Email" formControlName="email_id"
+                      [class.is-invalid]="schoolDetailsForm.controls['email_id'].invalid && schoolDetailsForm.controls['email_id'].touched" 
+                      [class.is-valid]="schoolDetailsForm.controls['email_id'].valid && schoolDetailsForm.controls['email_id'].touched">
                       <label for="floatingEmail">School Email</label>
                     </div>
                   </div>
                   <div class="col-md-6 mb-4">
                     <div class="form-floating">
-                      <input type="text" class="form-control" id="floatingEmail" placeholder="Your Website">
+                      <input type="text" class="form-control" id="floatingEmail" placeholder="Your Website" formControlName="school_website"
+                      [class.is-invalid]="schoolDetailsForm.controls['school_website'].invalid && schoolDetailsForm.controls['school_website'].touched" 
+                      [class.is-valid]="schoolDetailsForm.controls['school_website'].valid && schoolDetailsForm.controls['school_website'].touched">
                       <label for="floatingWebsite">Website</label>
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-md-6 mb-4">
-                    <div class="form-floating">
-                      <input type="tel" class="form-control" id="floatingPhone" placeholder="School Phone Number">
-                      <label for="floatingPhone">Phone No.</label>
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-4">
-                    <div class="form-floating">
-                      <input type="tel" class="form-control" id="floatingLandLine" placeholder="Your LandLine">
-                      <label for="floatingWebsite">LandLine</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 mb-4">
-                  <div class="form-floating">
-                    <textarea class="form-control" placeholder="Address" id="floatingTextarea" style="height: 100px;"></textarea>
-                    <label for="floatingTextarea">Address</label>
-                  </div>
-                </div>
-                <div class="row">
                   <div class="col-md-4 mb-4">
                     <div class="form-floating">
-                      <select class="form-select" id="floatingSelect" aria-label="State">
-                        <option selected>New York</option>
-                        <option value="1">Oregon</option>
-                        <option value="2">DC</option>
-                      </select>
-                      <label for="floatingSelect">Country</label>
+                      <ng-select [items]="countryList"  bindLabel="name" bindValue="id" placeholder="Select a country" (change)="getStateList($event)"></ng-select>
+                      <!-- <label for="floatingSelect">Country</label> -->
                     </div>
                   </div>
                   <div class="col-md-4 mb-4">
@@ -97,13 +79,43 @@
                 <div class="row">
                   <div class="col-md-6 mb-4">
                     <div class="form-floating">
-                      <input type="text" class="form-control" id="floatingPincode" placeholder="Pincode">
+                      <input type="text" class="form-control" id="floatingPhone" placeholder="School Phone Number" formControlName="phone_no"
+                      [class.is-invalid]="schoolDetailsForm.controls['phone_no'].invalid && schoolDetailsForm.controls['phone_no'].touched" 
+                      [class.is-valid]="schoolDetailsForm.controls['phone_no'].valid && schoolDetailsForm.controls['phone_no'].touched">
+                      <label for="floatingPhone">Phone No.</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-floating">
+                      <input type="tel" class="form-control" id="floatingLandLine" placeholder="Your LandLine" formControlName="landline_no"
+                      [class.is-invalid]="schoolDetailsForm.controls['landline_no'].invalid && schoolDetailsForm.controls['landline_no'].touched" 
+                      [class.is-valid]="schoolDetailsForm.controls['landline_no'].valid && schoolDetailsForm.controls['landline_no'].touched">
+                      <label for="floatingLandline">LandLine</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 mb-4">
+                  <div class="form-floating">
+                    <textarea class="form-control" placeholder="Address" id="floatingTextarea" style="height: 100px;" formControlName="school_address"
+                    [class.is-invalid]="schoolDetailsForm.controls['school_address'].invalid && schoolDetailsForm.controls['school_address'].touched" 
+                    [class.is-valid]="schoolDetailsForm.controls['school_address'].valid && schoolDetailsForm.controls['school_address'].touched"></textarea>
+                    <label for="floatingTextarea">Address</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="floatingPincode" placeholder="Pincode" formControlName="pincode"
+                      [class.is-invalid]="schoolDetailsForm.controls['pincode'].invalid && schoolDetailsForm.controls['pincode'].touched" 
+                      [class.is-valid]="schoolDetailsForm.controls['pincode'].valid && schoolDetailsForm.controls['pincode'].touched">
                       <label for="floatingPincode">Pincode</label>
                     </div>
                   </div>
                   <div class="col-md-6 mb-4">
                     <div class="form-floating">
-                      <input type="text" class="form-control" id="floatingAffiliated" placeholder="Affiliated To">
+                      <input type="text" class="form-control" id="floatingAffiliated" placeholder="Affiliated To" formControlName="affiliated_to"
+                      [class.is-invalid]="schoolDetailsForm.controls['affiliated_to'].invalid && schoolDetailsForm.controls['affiliated_to'].touched" 
+                      [class.is-valid]="schoolDetailsForm.controls['affiliated_to'].valid && schoolDetailsForm.controls['affiliated_to'].touched">
                       <label for="floatingAffiliated">Affiliated To</label>
                     </div>
                   </div>

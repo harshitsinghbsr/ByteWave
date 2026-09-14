@@ -19,6 +19,8 @@ import { FooterComponent } from './components/main/footer/footer.component';
 import { SchoolprofileComponent } from './components/main/pages/schoolprofile/schoolprofile.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { APIService } from './service/api.service';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { APIService } from './service/api.service';
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
     NgxSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    NgSelectModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true} , APIService],
   bootstrap: [AppComponent]

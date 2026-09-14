@@ -24,6 +24,7 @@ export class MainComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    console.log("main");
   }
 
   async getUserDetailAfterLogin(username:string , password:string|number){

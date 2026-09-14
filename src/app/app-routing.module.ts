@@ -6,6 +6,7 @@ import { MainComponent } from './components/main/main.component';
 import { DashboardComponent } from './components/main/pages/dashboard/dashboard.component';
 import { SchoolprofileComponent } from './components/main/pages/schoolprofile/schoolprofile.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { AuthGuard } from './auth/auth-guard.guard';
 
 const routes: Routes = [
   { path:"", redirectTo:"loginpage", pathMatch:'full'},
@@ -13,11 +14,12 @@ const routes: Routes = [
   { path:"loginpage", component:LoginpageComponent},
   { path:"verifyemail", component:VerifyEmailComponent},
   { path:"mainLayout", 
-    component:MainComponent,
+    component:MainComponent, canActivate: [AuthGuard],
     children : [{path:'' , redirectTo:'dashboard' , pathMatch:'full'},
     {path:'dashboard' , component:DashboardComponent},
     {path:'school_profile' , component:SchoolprofileComponent}]
-  }
+  },
+  { path: '**', redirectTo: '/loginpage' }, // Wildcard route
 ];
 
 @NgModule({
